@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<!-- Hello guys, Here i tried to create basic popup form using just css html and basic javascript :) -->	
+<meta charset="utf-8">
+<title>Popup Form</title>
+</head>
+<style>
+ /* Here is style sections which neccessory to looks popup form Good! */ 
+	.popup{
+		display: none;  /*Display none because we change this property to toggle betwee popup and close*/
+		position: fixed; /* position fixed is required because cover should be fixed*/
+		z-index: 1; /* alignments of cover should be full covered windows without space and starting from top of the page*/
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow-x: auto; /*Overflow because container can scroll if needed*/
+		background-color: rgb(0,0,0);
+		background-color: rgba(0,0,0,0.4); /* Opacity 0.4*/ 
+	}
+	.popupContent{
+		background-color: rgba(0,0,0,0.4);
+		position: absolute; /*This one is neccesory to display content responsive*/
+		margin: 13% 0 0 37%; /* This is just for alignment to center you can change as per requirnments*/
+		padding: 20px;
+		border: 2px solid #888;
+		width: auto;
+	}
+</style>
+<!-- button to set onclick showform you can also use any tags that supports onclick event handler-->
+	<button id="showform" onclick="showform()" style="dislay: block;">Show Form</button>
+<!-- simple contact form that we gonna display when user clicks on show form button-->
+	<form class="popup" id="form">
+		<div class="popupContent">
+		<!-- We have to also add close button to close popup-->
+		<button onclick="closeform()" value="close" style="float: right;">&times;</button>
+			<br>
+
+		
+		<label name="name">Enter Your Name</label><br>
+
+		<input type="text" name="name" placeholder="Name" required>
+		<br>
+
+		<label name="email">Enter Your Email id</label><br>
+
+		<input type="email" name="email" placeholder="example@gmail.com" required>
+		<br>
+
+		<label name="message">Message</label><br>
+<!-- looks good but we can change styles as per required  -->
+		<textarea style="width: 400px; height: 200px;" placeholder="Enter Your message"></textarea>
+		<br>
+			
+		<input type="submit" name="submit" value="submit">
+		
+		</div>	
+	</form>
+<body>
+</body>
+</html>
+<script>
+/* we have to create 2 event hander functions showform and hide form */
+	function showform(){
+		document.getElementById('showform').style.display = 'none';
+		document.getElementById('form').style.display = 'block';
+	}
+	function closeform(){
+		document.getElementById('showform').style.display = 'block';
+		document.getElementById('form').style.display = 'none';
+	}
+</script>
